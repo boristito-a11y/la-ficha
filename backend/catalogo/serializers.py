@@ -1,0 +1,20 @@
+from rest_framework import serializers
+from .models import Categoria, Producto
+
+
+class CategoriaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Categoria
+        fields = ["id", "nombre", "descripcion"]
+
+
+class ProductoSerializer(serializers.ModelSerializer):
+    # Además del id, enviamos el nombre de la categoría para mostrarlo en React
+    categoria_nombre = serializers.CharField(source="categoria.nombre", read_only=True)
+
+    class Meta:
+        model = Producto
+        fields = [
+            "id", "nombre", "descripcion", "precio", "imagen",
+            "stock", "categoria", "categoria_nombre",
+        ]
