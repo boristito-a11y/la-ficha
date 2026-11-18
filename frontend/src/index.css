@@ -130,37 +130,40 @@
     }
 }
 
-/* ===== Identidad visual de "La Ficha" ===== */
+/* ===== Identidad visual de "La Ficha" (portada con banner) ===== */
 
-/* Colores y fuentes propias: crean clases como bg-mesa, text-crema, font-titulo */
+/* Colores y fuentes propias: crean clases como bg-carbon, text-ambar, font-titulo */
 @theme {
-  --color-mesa: #16382B;
-  --color-mesa-claro: #22513F;
-  --color-crema: #FBF5E9;
-  --color-crema-oscuro: #F1E6CF;
-  --color-tinta: #1C1A17;
-  --color-dado: #D64531;
-  --color-mostaza: #E8B13A;
+  --color-carbon: #1C1917;
+  --color-piedra: #57534E;
+  --color-arena: #F5F5F4;
+  --color-ambar: #F59E0B;
+  --color-ambar-oscuro: #B45309;
+  --color-alerta: #DC2626;
 
   --font-titulo: "Bricolage Grotesque Variable", ui-sans-serif, sans-serif;
 }
 
 /* Variables de shadcn/ui adaptadas a la paleta de la tienda */
 :root {
-  --background: #FBF5E9;
-  --foreground: #1C1A17;
+  --background: #FAFAF9;
+  --foreground: #1C1917;
   --card: #FFFFFF;
-  --card-foreground: #1C1A17;
-  --primary: #16382B;
-  --primary-foreground: #FBF5E9;
-  --secondary: #F1E6CF;
-  --secondary-foreground: #1C1A17;
-  --muted: #F1E6CF;
-  --muted-foreground: #5F5A50;
-  --accent: #E8B13A;
-  --accent-foreground: #1C1A17;
-  --destructive: #D64531;
-  --border: #E4D7BC;
-  --ring: #E8B13A;
+  --card-foreground: #1C1917;
+  --primary: #1C1917;
+  --primary-foreground: #FAFAF9;
+  --secondary: #F5F5F4;
+  --secondary-foreground: #1C1917;
+  --muted: #F5F5F4;
+  --muted-foreground: #78716C;
+  --accent: #F59E0B;
+  --accent-foreground: #1C1917;
+  --destructive: #DC2626;
+  --border: #E7E5E4;
+  --ring: #F59E0B;
   --radius: 0.9rem;
+}
+
+html {
+  scroll-behavior: smooth;
 }

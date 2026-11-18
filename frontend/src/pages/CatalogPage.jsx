@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
+import Hero from "@/components/Hero"
 import CategoryFilter from "@/components/CategoryFilter"
 import ProductList from "@/components/ProductList"
 import { obtenerCategorias, obtenerProductos } from "@/services/api"
@@ -35,52 +36,68 @@ function CatalogPage() {
     cargarCatalogo()
   }, [])
 
+  // Para cada categoría: cuántos productos tiene y la foto de uno de ellos
+  const tarjetasCategorias = [
+    { id: "todas", nombre: "Todas", cantidad: productos.length, imagen: productos[0]?.imagen },
+    ...categorias.map((categoria) => {
+      const suyos = productos.filter((p) => p.categoria === categoria.id)
+      return { ...categoria, cantidad: suyos.length, imagen: suyos.find((p) => p.imagen)?.imagen }
+    }),
+  ]
+
   const productosFiltrados =
     categoriaSeleccionada === "todas"
       ? productos
       : productos.filter((p) => p.categoria === categoriaSeleccionada)
 
+  const nombreSeleccionada =
+    tarjetasCategorias.find((c) => c.id === categoriaSeleccionada)?.nombre ?? "Todas"
+
   return (
-    <main id="catalogo" className="mx-auto max-w-6xl px-4 py-10 md:px-8">
-      <section className="mb-10 overflow-hidden rounded-3xl border-2 border-tinta bg-mostaza px-6 py-8 shadow-[8px_8px_0_#1C1A17] md:px-10">
-        <p className="text-sm font-bold tracking-widest uppercase">Tienda de juegos de mesa</p>
-        <h1 className="mt-2 max-w-2xl font-titulo text-4xl leading-none font-extrabold md:text-5xl">
-          Encuentra el juego perfecto para tu próxima partida
-        </h1>
-      </section>
+    <main>
+      <Hero totalProductos={productos.length} totalCategorias={categorias.length} />
 
-      <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <h2 className="font-titulo text-3xl font-extrabold">Catálogo</h2>
-          {!cargando && !error && (
-            <p className="text-sm text-muted-foreground">
-              {productosFiltrados.length} producto(s) encontrados
-            </p>
-          )}
-        </div>
-        <CategoryFilter
-          categorias={categorias}
-          seleccionada={categoriaSeleccionada}
-          onSeleccionar={setCategoriaSeleccionada}
-        />
+      <div className="mx-auto max-w-7xl px-4 md:px-8">
+        {error && (
+          <div className="mt-10 rounded-2xl border border-alerta/40 bg-white p-8 text-center">
+            <p className="font-semibold text-alerta">{error}</p>
+            <Button onClick={cargarCatalogo} className="mt-4">Reintentar</Button>
+          </div>
+        )}
+
+        {cargando && (
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[1, 2, 3, 4].map((n) => (
+              <div key={n} className="aspect-[4/3] animate-pulse rounded-2xl bg-arena" />
+            ))}
+          </div>
+        )}
+
+        {!cargando && !error && (
+          <>
+            <section id="categorias" className="scroll-mt-6 pt-12">
+              <h2 className="mb-5 font-titulo text-3xl font-extrabold">Explora por categoría</h2>
+              <CategoryFilter
+                categorias={tarjetasCategorias}
+                seleccionada={categoriaSeleccionada}
+                onSeleccionar={setCategoriaSeleccionada}
+              />
+            </section>
+
+            <section id="catalogo" className="scroll-mt-6 py-12">
+              <div className="mb-6 flex flex-wrap items-end justify-between gap-2">
+                <h2 className="font-titulo text-3xl font-extrabold">
+                  {categoriaSeleccionada === "todas" ? "Todo el catálogo" : nombreSeleccionada}
+                </h2>
+                <p className="text-sm text-muted-foreground">
+                  {productosFiltrados.length} producto(s) encontrados
+                </p>
+              </div>
+              <ProductList productos={productosFiltrados} />
+            </section>
+          </>
+        )}
       </div>
-
-      {cargando && (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {[1, 2, 3, 4].map((n) => (
-            <div key={n} className="h-80 animate-pulse rounded-xl bg-crema-oscuro" />
-          ))}
-        </div>
-      )}
-
-      {error && (
-        <div className="rounded-2xl border-2 border-dado bg-white p-6 text-center">
-          <p className="font-semibold text-dado">{error}</p>
-          <Button onClick={cargarCatalogo} className="mt-4">Reintentar</Button>
-        </div>
-      )}
-
-      {!cargando && !error && <ProductList productos={productosFiltrados} />}
     </main>
   )
 }

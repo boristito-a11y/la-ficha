@@ -18,7 +18,7 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=120)
     descripcion = models.TextField()
     precio = models.DecimalField(max_digits=8, decimal_places=2)
-    imagen = models.URLField(blank=True)
+    imagen = models.ImageField(upload_to="productos/", blank=True)
     stock = models.PositiveIntegerField("cantidad disponible", default=0)
     # Relación uno a muchos: una categoría tiene muchos productos
     categoria = models.ForeignKey(

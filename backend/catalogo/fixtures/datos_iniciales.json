@@ -1,14 +1,218 @@
 [
-  {"model": "catalogo.categoria", "pk": 1, "fields": {"nombre": "Estrategia", "descripcion": "Juegos de planificaciÃ³n, recursos y largo plazo"}},
-  {"model": "catalogo.categoria", "pk": 2, "fields": {"nombre": "Familiares", "descripcion": "Partidas cortas para jugar con niÃ±os y adultos"}},
-  {"model": "catalogo.categoria", "pk": 3, "fields": {"nombre": "Cartas", "descripcion": "Juegos de cartas rÃ¡pidos y fÃ¡ciles de llevar"}},
-  {"model": "catalogo.categoria", "pk": 4, "fields": {"nombre": "Cooperativos", "descripcion": "Todos los jugadores ganan o pierden juntos"}},
-  {"model": "catalogo.producto", "pk": 1, "fields": {"nombre": "Catan", "descripcion": "Comercia, construye caminos y pueblos en una isla llena de recursos. Ideal para 3 a 4 jugadores.", "precio": "189.90", "imagen": "https://placehold.co/600x450/1f4d3a/fdf6e3?text=Catan", "stock": 12, "categoria": 1}},
-  {"model": "catalogo.producto", "pk": 2, "fields": {"nombre": "Carcassonne", "descripcion": "Coloca losetas para formar ciudades, caminos y campos medievales.", "precio": "139.90", "imagen": "https://placehold.co/600x450/1f4d3a/fdf6e3?text=Carcassonne", "stock": 8, "categoria": 1}},
-  {"model": "catalogo.producto", "pk": 3, "fields": {"nombre": "Ticket to Ride", "descripcion": "Une ciudades con rutas de tren y completa tus destinos antes que los demÃ¡s.", "precio": "179.00", "imagen": "https://placehold.co/600x450/c2410c/fdf6e3?text=Ticket+to+Ride", "stock": 5, "categoria": 2}},
-  {"model": "catalogo.producto", "pk": 4, "fields": {"nombre": "Dixit", "descripcion": "Cuenta historias con cartas ilustradas y adivina la carta de los demÃ¡s.", "precio": "149.50", "imagen": "https://placehold.co/600x450/c2410c/fdf6e3?text=Dixit", "stock": 10, "categoria": 2}},
-  {"model": "catalogo.producto", "pk": 5, "fields": {"nombre": "Uno", "descripcion": "El clÃ¡sico de cartas para quedarse sin mano lo antes posible.", "precio": "29.90", "imagen": "https://placehold.co/600x450/7c3aed/fdf6e3?text=Uno", "stock": 40, "categoria": 3}},
-  {"model": "catalogo.producto", "pk": 6, "fields": {"nombre": "Exploding Kittens", "descripcion": "Roba cartas y evita al gatito explosivo. Partidas de 15 minutos.", "precio": "89.90", "imagen": "https://placehold.co/600x450/7c3aed/fdf6e3?text=Exploding+Kittens", "stock": 15, "categoria": 3}},
-  {"model": "catalogo.producto", "pk": 7, "fields": {"nombre": "Pandemic", "descripcion": "Trabajen en equipo para frenar cuatro enfermedades que se expanden por el mundo.", "precio": "199.00", "imagen": "https://placehold.co/600x450/0e7490/fdf6e3?text=Pandemic", "stock": 3, "categoria": 4}},
-  {"model": "catalogo.producto", "pk": 8, "fields": {"nombre": "The Mind", "descripcion": "Jueguen cartas en orden sin hablar: pura conexiÃ³n entre jugadores.", "precio": "59.90", "imagen": "https://placehold.co/600x450/0e7490/fdf6e3?text=The+Mind", "stock": 0, "categoria": 4}}
+{
+  "model": "catalogo.categoria",
+  "pk": 1,
+  "fields": {
+    "nombre": "Estrategia",
+    "descripcion": "Juegos de planificación, recursos y largo plazo"
+  }
+},
+{
+  "model": "catalogo.categoria",
+  "pk": 2,
+  "fields": {
+    "nombre": "Familiares",
+    "descripcion": "Partidas cortas para jugar con niños y adultos"
+  }
+},
+{
+  "model": "catalogo.categoria",
+  "pk": 3,
+  "fields": {
+    "nombre": "Cartas",
+    "descripcion": "Juegos de cartas rápidos y fáciles de llevar"
+  }
+},
+{
+  "model": "catalogo.categoria",
+  "pk": 4,
+  "fields": {
+    "nombre": "Cooperativos",
+    "descripcion": "Todos los jugadores ganan o pierden juntos"
+  }
+},
+{
+  "model": "catalogo.categoria",
+  "pk": 5,
+  "fields": {
+    "nombre": "Fiesta",
+    "descripcion": "Juegos para grupos grandes y muchas risas"
+  }
+},
+{
+  "model": "catalogo.categoria",
+  "pk": 6,
+  "fields": {
+    "nombre": "Infantiles",
+    "descripcion": "Juegos sencillos para niños desde 4 años"
+  }
+},
+{
+  "model": "catalogo.producto",
+  "pk": 1,
+  "fields": {
+    "nombre": "Catan",
+    "descripcion": "Comercia, construye caminos y pueblos en una isla llena de recursos. Ideal para 3 a 4 jugadores.",
+    "precio": "189.90",
+    "imagen": "productos/catan_TuYdV3m.jpg",
+    "stock": 12,
+    "categoria": 1
+  }
+},
+{
+  "model": "catalogo.producto",
+  "pk": 2,
+  "fields": {
+    "nombre": "Carcassonne",
+    "descripcion": "Coloca losetas para formar ciudades, caminos y campos medievales.",
+    "precio": "139.90",
+    "imagen": "productos/carcassonne.jpg",
+    "stock": 8,
+    "categoria": 1
+  }
+},
+{
+  "model": "catalogo.producto",
+  "pk": 3,
+  "fields": {
+    "nombre": "Ticket to Ride",
+    "descripcion": "Une ciudades con rutas de tren y completa tus destinos antes que los demás.",
+    "precio": "179.00",
+    "imagen": "productos/ticket-to-ride.jpg",
+    "stock": 5,
+    "categoria": 2
+  }
+},
+{
+  "model": "catalogo.producto",
+  "pk": 4,
+  "fields": {
+    "nombre": "Dixit",
+    "descripcion": "Cuenta historias con cartas ilustradas y adivina la carta de los demás.",
+    "precio": "149.50",
+    "imagen": "productos/dixit_ymBgx5w.jpg",
+    "stock": 10,
+    "categoria": 2
+  }
+},
+{
+  "model": "catalogo.producto",
+  "pk": 5,
+  "fields": {
+    "nombre": "Uno",
+    "descripcion": "El clásico de cartas para quedarse sin mano lo antes posible.",
+    "precio": "24.90",
+    "imagen": "productos/uno_NWuAhXG.jpg",
+    "stock": 40,
+    "categoria": 3
+  }
+},
+{
+  "model": "catalogo.producto",
+  "pk": 6,
+  "fields": {
+    "nombre": "Exploding Kittens",
+    "descripcion": "Roba cartas y evita al gatito explosivo. Partidas de 15 minutos.",
+    "precio": "89.90",
+    "imagen": "productos/exploding-kittens.jpg",
+    "stock": 15,
+    "categoria": 3
+  }
+},
+{
+  "model": "catalogo.producto",
+  "pk": 7,
+  "fields": {
+    "nombre": "Pandemic",
+    "descripcion": "Trabajen en equipo para frenar cuatro enfermedades que se expanden por el mundo.",
+    "precio": "199.00",
+    "imagen": "productos/pandemic_d89onqs.jpg",
+    "stock": 3,
+    "categoria": 4
+  }
+},
+{
+  "model": "catalogo.producto",
+  "pk": 8,
+  "fields": {
+    "nombre": "The Mind",
+    "descripcion": "Jueguen cartas en orden sin hablar: pura conexión entre jugadores.",
+    "precio": "59.90",
+    "imagen": "productos/the-mind.jpg",
+    "stock": 0,
+    "categoria": 4
+  }
+},
+{
+  "model": "catalogo.producto",
+  "pk": 9,
+  "fields": {
+    "nombre": "Código Secreto",
+    "descripcion": "Dos equipos compiten por adivinar palabras con una sola pista.",
+    "precio": "99.90",
+    "imagen": "productos/codigo-secreto_78BIXSm.jpg",
+    "stock": 6,
+    "categoria": 5
+  }
+},
+{
+  "model": "catalogo.producto",
+  "pk": 10,
+  "fields": {
+    "nombre": "Jungle Speed",
+    "descripcion": "Sé el más rápido en atrapar el tótem cuando salen dos símbolos iguales.",
+    "precio": "79.90",
+    "imagen": "productos/jungle-speed_3uwl7uF.jpg",
+    "stock": 9,
+    "categoria": 5
+  }
+},
+{
+  "model": "catalogo.producto",
+  "pk": 11,
+  "fields": {
+    "nombre": "Dobble",
+    "descripcion": "Encuentra el único símbolo que se repite entre dos cartas antes que los demás.",
+    "precio": "54.90",
+    "imagen": "productos/dobble_6mZA8ia.jpg",
+    "stock": 20,
+    "categoria": 6
+  }
+},
+{
+  "model": "catalogo.producto",
+  "pk": 12,
+  "fields": {
+    "nombre": "Mi Primer Frutal",
+    "descripcion": "Recojan juntos la fruta del huerto antes de que llegue el cuervo.",
+    "precio": "89.90",
+    "imagen": "productos/mi-primer-frutal_SohcgGh.jpg",
+    "stock": 4,
+    "categoria": 6
+  }
+},
+{
+  "model": "catalogo.producto",
+  "pk": 13,
+  "fields": {
+    "nombre": "Virus!",
+    "descripcion": "Cura tus órganos y contagia a los demás jugadores con cartas de virus.",
+    "precio": "49.90",
+    "imagen": "productos/virus_ItOVcqm.jpg",
+    "stock": 0,
+    "categoria": 3
+  }
+},
+{
+  "model": "catalogo.producto",
+  "pk": 15,
+  "fields": {
+    "nombre": "Azul",
+    "descripcion": "Decora el palacio con azulejos de colores y suma puntos por patrones.",
+    "precio": "169.90",
+    "imagen": "productos/azul_yaayKu6.jpg",
+    "stock": 7,
+    "categoria": 1
+  }
+}
 ]
