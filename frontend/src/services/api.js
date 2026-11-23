@@ -16,3 +16,11 @@ export function obtenerProductos() {
 export function obtenerCategorias() {
   return pedir("/categorias/")
 }
+
+export function obtenerPromociones() {
+  return pedir("/promociones/")
+}
+
+export function obtenerRecomendados(idProducto) {
+  return pedir(`/productos/${idProducto}/recomendados/`)
+}

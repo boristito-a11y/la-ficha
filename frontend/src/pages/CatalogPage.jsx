@@ -3,7 +3,10 @@ import { Button } from "@/components/ui/button"
 import Hero from "@/components/Hero"
 import CategoryFilter from "@/components/CategoryFilter"
 import ProductList from "@/components/ProductList"
-import { obtenerCategorias, obtenerProductos } from "@/services/api"
+import PromoBanner from "@/components/PromoBanner"
+import SearchBar from "@/components/SearchBar"
+import ProductDetail from "@/components/ProductDetail"
+import { obtenerCategorias, obtenerProductos, obtenerPromociones } from "@/services/api"
 
 function CatalogPage() {
   const [productos, setProductos] = useState([])
@@ -11,18 +14,26 @@ function CatalogPage() {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("todas")
   const [cargando, setCargando] = useState(true)
   const [error, setError] = useState("")
+    // Lab 14: búsqueda, ofertas, orden, promociones y detalle
+  const [busqueda, setBusqueda] = useState("")
+  const [soloOfertas, setSoloOfertas] = useState(false)
+  const [orden, setOrden] = useState("nombre")
+  const [promociones, setPromociones] = useState([])
+  const [productoAbierto, setProductoAbierto] = useState(null)
 
   const cargarCatalogo = async () => {
     setCargando(true)
     setError("")
     try {
       // Las dos consultas se hacen al mismo tiempo
-      const [listaProductos, listaCategorias] = await Promise.all([
+      const [listaProductos, listaCategorias, listaPromociones] = await Promise.all([
         obtenerProductos(),
         obtenerCategorias(),
+        obtenerPromociones(),
       ])
       setProductos(listaProductos)
       setCategorias(listaCategorias)
+      setPromociones(listaPromociones)
     } catch (err) {
       console.error(err)
       setError("No se pudo cargar el catálogo. Revisa que el servidor de Django esté encendido.")
@@ -45,10 +56,18 @@ function CatalogPage() {
     }),
   ]
 
-  const productosFiltrados =
-    categoriaSeleccionada === "todas"
-      ? productos
-      : productos.filter((p) => p.categoria === categoriaSeleccionada)
+  // Se aplican en orden: categoría, búsqueda, ofertas y orden
+  const texto = busqueda.trim().toLowerCase()
+  const productosFiltrados = productos
+    .filter((p) => categoriaSeleccionada === "todas" || p.categoria === categoriaSeleccionada)
+    .filter((p) => p.nombre.toLowerCase().includes(texto))
+    .filter((p) => !soloOfertas || p.descuento > 0)
+    .sort((a, b) => {
+      if (orden === "precio-asc") return a.precio_final - b.precio_final
+      if (orden === "precio-desc") return b.precio_final - a.precio_final
+      if (orden === "descuento") return b.descuento - a.descuento
+      return a.nombre.localeCompare(b.nombre)
+    })
 
   const nombreSeleccionada =
     tarjetasCategorias.find((c) => c.id === categoriaSeleccionada)?.nombre ?? "Todas"
@@ -75,6 +94,7 @@ function CatalogPage() {
 
         {!cargando && !error && (
           <>
+            <PromoBanner promociones={promociones} />
             <section id="categorias" className="scroll-mt-6 pt-12">
               <h2 className="mb-5 font-titulo text-3xl font-extrabold">Explora por categoría</h2>
               <CategoryFilter
@@ -93,11 +113,28 @@ function CatalogPage() {
                   {productosFiltrados.length} producto(s) encontrados
                 </p>
               </div>
-              <ProductList productos={productosFiltrados} />
+              <div className="mb-6">
+                <SearchBar
+                  busqueda={busqueda}
+                  onBuscar={setBusqueda}
+                  soloOfertas={soloOfertas}
+                  onSoloOfertas={setSoloOfertas}
+                  orden={orden}
+                  onOrden={setOrden}
+                />
+              </div>
+              <ProductList productos={productosFiltrados} onVer={setProductoAbierto} />
             </section>
           </>
         )}
       </div>
+            {productoAbierto && (
+        <ProductDetail
+          producto={productoAbierto}
+          onCerrar={() => setProductoAbierto(null)}
+          onVer={setProductoAbierto}
+        />
+      )}
     </main>
   )
 }

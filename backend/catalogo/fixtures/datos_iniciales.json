@@ -4,7 +4,7 @@
   "pk": 1,
   "fields": {
     "nombre": "Estrategia",
-    "descripcion": "Juegos de planificaciÛn, recursos y largo plazo"
+    "descripcion": "Juegos de planificaci√≥n, recursos y largo plazo"
   }
 },
 {
@@ -12,7 +12,7 @@
   "pk": 2,
   "fields": {
     "nombre": "Familiares",
-    "descripcion": "Partidas cortas para jugar con niÒos y adultos"
+    "descripcion": "Partidas cortas para jugar con ni√±os y adultos"
   }
 },
 {
@@ -20,7 +20,7 @@
   "pk": 3,
   "fields": {
     "nombre": "Cartas",
-    "descripcion": "Juegos de cartas r·pidos y f·ciles de llevar"
+    "descripcion": "Juegos de cartas r√°pidos y f√°ciles de llevar"
   }
 },
 {
@@ -44,7 +44,7 @@
   "pk": 6,
   "fields": {
     "nombre": "Infantiles",
-    "descripcion": "Juegos sencillos para niÒos desde 4 aÒos"
+    "descripcion": "Juegos sencillos para ni√±os desde 4 a√±os"
   }
 },
 {
@@ -56,7 +56,10 @@
     "precio": "189.90",
     "imagen": "productos/catan_TuYdV3m.jpg",
     "stock": 12,
-    "categoria": 1
+    "categoria": 1,
+    "stock_minimo": 3,
+    "descuento": 20,
+    "destacado": true
   }
 },
 {
@@ -68,7 +71,10 @@
     "precio": "139.90",
     "imagen": "productos/carcassonne.jpg",
     "stock": 8,
-    "categoria": 1
+    "categoria": 1,
+    "stock_minimo": 3,
+    "descuento": 0,
+    "destacado": false
   }
 },
 {
@@ -76,11 +82,14 @@
   "pk": 3,
   "fields": {
     "nombre": "Ticket to Ride",
-    "descripcion": "Une ciudades con rutas de tren y completa tus destinos antes que los dem·s.",
+    "descripcion": "Une ciudades con rutas de tren y completa tus destinos antes que los dem√°s.",
     "precio": "179.00",
     "imagen": "productos/ticket-to-ride.jpg",
     "stock": 5,
-    "categoria": 2
+    "categoria": 2,
+    "stock_minimo": 3,
+    "descuento": 0,
+    "destacado": false
   }
 },
 {
@@ -88,11 +97,14 @@
   "pk": 4,
   "fields": {
     "nombre": "Dixit",
-    "descripcion": "Cuenta historias con cartas ilustradas y adivina la carta de los dem·s.",
+    "descripcion": "Cuenta historias con cartas ilustradas y adivina la carta de los dem√°s.",
     "precio": "149.50",
     "imagen": "productos/dixit_ymBgx5w.jpg",
     "stock": 10,
-    "categoria": 2
+    "categoria": 2,
+    "stock_minimo": 3,
+    "descuento": 15,
+    "destacado": false
   }
 },
 {
@@ -100,11 +112,14 @@
   "pk": 5,
   "fields": {
     "nombre": "Uno",
-    "descripcion": "El cl·sico de cartas para quedarse sin mano lo antes posible.",
+    "descripcion": "El cl√°sico de cartas para quedarse sin mano lo antes posible.",
     "precio": "24.90",
     "imagen": "productos/uno_NWuAhXG.jpg",
-    "stock": 40,
-    "categoria": 3
+    "stock": 50,
+    "categoria": 3,
+    "stock_minimo": 3,
+    "descuento": 30,
+    "destacado": false
   }
 },
 {
@@ -116,7 +131,10 @@
     "precio": "89.90",
     "imagen": "productos/exploding-kittens.jpg",
     "stock": 15,
-    "categoria": 3
+    "categoria": 3,
+    "stock_minimo": 3,
+    "descuento": 0,
+    "destacado": false
   }
 },
 {
@@ -127,8 +145,11 @@
     "descripcion": "Trabajen en equipo para frenar cuatro enfermedades que se expanden por el mundo.",
     "precio": "199.00",
     "imagen": "productos/pandemic_d89onqs.jpg",
-    "stock": 3,
-    "categoria": 4
+    "stock": 2,
+    "categoria": 4,
+    "stock_minimo": 3,
+    "descuento": 0,
+    "destacado": false
   }
 },
 {
@@ -136,23 +157,29 @@
   "pk": 8,
   "fields": {
     "nombre": "The Mind",
-    "descripcion": "Jueguen cartas en orden sin hablar: pura conexiÛn entre jugadores.",
+    "descripcion": "Jueguen cartas en orden sin hablar: pura conexi√≥n entre jugadores.",
     "precio": "59.90",
     "imagen": "productos/the-mind.jpg",
-    "stock": 0,
-    "categoria": 4
+    "stock": 10,
+    "categoria": 4,
+    "stock_minimo": 3,
+    "descuento": 0,
+    "destacado": false
   }
 },
 {
   "model": "catalogo.producto",
   "pk": 9,
   "fields": {
-    "nombre": "CÛdigo Secreto",
+    "nombre": "C√≥digo Secreto",
     "descripcion": "Dos equipos compiten por adivinar palabras con una sola pista.",
     "precio": "99.90",
     "imagen": "productos/codigo-secreto_78BIXSm.jpg",
     "stock": 6,
-    "categoria": 5
+    "categoria": 5,
+    "stock_minimo": 3,
+    "descuento": 0,
+    "destacado": true
   }
 },
 {
@@ -160,11 +187,14 @@
   "pk": 10,
   "fields": {
     "nombre": "Jungle Speed",
-    "descripcion": "SÈ el m·s r·pido en atrapar el tÛtem cuando salen dos sÌmbolos iguales.",
+    "descripcion": "S√© el m√°s r√°pido en atrapar el t√≥tem cuando salen dos s√≠mbolos iguales.",
     "precio": "79.90",
     "imagen": "productos/jungle-speed_3uwl7uF.jpg",
     "stock": 9,
-    "categoria": 5
+    "categoria": 5,
+    "stock_minimo": 3,
+    "descuento": 0,
+    "destacado": false
   }
 },
 {
@@ -172,11 +202,14 @@
   "pk": 11,
   "fields": {
     "nombre": "Dobble",
-    "descripcion": "Encuentra el ˙nico sÌmbolo que se repite entre dos cartas antes que los dem·s.",
+    "descripcion": "Encuentra el √∫nico s√≠mbolo que se repite entre dos cartas antes que los dem√°s.",
     "precio": "54.90",
     "imagen": "productos/dobble_6mZA8ia.jpg",
     "stock": 20,
-    "categoria": 6
+    "categoria": 6,
+    "stock_minimo": 3,
+    "descuento": 0,
+    "destacado": false
   }
 },
 {
@@ -188,7 +221,10 @@
     "precio": "89.90",
     "imagen": "productos/mi-primer-frutal_SohcgGh.jpg",
     "stock": 4,
-    "categoria": 6
+    "categoria": 6,
+    "stock_minimo": 3,
+    "descuento": 0,
+    "destacado": false
   }
 },
 {
@@ -196,11 +232,14 @@
   "pk": 13,
   "fields": {
     "nombre": "Virus!",
-    "descripcion": "Cura tus Ûrganos y contagia a los dem·s jugadores con cartas de virus.",
+    "descripcion": "Cura tus √≥rganos y contagia a los dem√°s jugadores con cartas de virus.",
     "precio": "49.90",
     "imagen": "productos/virus_ItOVcqm.jpg",
     "stock": 0,
-    "categoria": 3
+    "categoria": 3,
+    "stock_minimo": 3,
+    "descuento": 0,
+    "destacado": false
   }
 },
 {
@@ -212,7 +251,53 @@
     "precio": "169.90",
     "imagen": "productos/azul_yaayKu6.jpg",
     "stock": 7,
-    "categoria": 1
+    "categoria": 1,
+    "stock_minimo": 3,
+    "descuento": 10,
+    "destacado": true
+  }
+},
+{
+  "model": "catalogo.movimientoinventario",
+  "pk": 1,
+  "fields": {
+    "producto": 7,
+    "tipo": "salida",
+    "cantidad": 1,
+    "nota": "Venta en tienda",
+    "fecha": "2026-11-23T23:05:55.088Z"
+  }
+},
+{
+  "model": "catalogo.movimientoinventario",
+  "pk": 2,
+  "fields": {
+    "producto": 8,
+    "tipo": "entrada",
+    "cantidad": 10,
+    "nota": "Reposici√≥n r√°pida",
+    "fecha": "2026-11-23T23:08:54.077Z"
+  }
+},
+{
+  "model": "catalogo.movimientoinventario",
+  "pk": 3,
+  "fields": {
+    "producto": 5,
+    "tipo": "entrada",
+    "cantidad": 10,
+    "nota": "Reposici√≥n r√°pida",
+    "fecha": "2026-11-23T23:08:54.085Z"
+  }
+},
+{
+  "model": "catalogo.promocion",
+  "pk": 1,
+  "fields": {
+    "titulo": "Semana de juegos en familia",
+    "descripcion": "Hasta 30% de descuento en juegos seleccionados",
+    "codigo": "FAMILIA30",
+    "activa": true
   }
 }
 ]
